@@ -19,22 +19,23 @@ const newFormHandler = async (event) => {
       alert('Failed to create post');
     }
   }
-};
 
-if (title && description) {
-  const response = await fetch(`/api/post`, {
-    method: 'GET',
-    body: JSON.stringify({ title, description }),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
 
-  if (response.ok) {
-    document.location.replace('/profile');
-  } else {
-    alert('Failed to create post');
-  }
+  if (title && description) {
+    const response = await fetch(`/api/post`, {
+      method: 'GET',
+      body: JSON.stringify({ title, description }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+
+    if (response.ok) {
+      document.location.replace('/profile');
+    } else {
+      alert('Failed to create post');
+    }
+  };
 };
 
 const delButtonHandler = async (event) => {

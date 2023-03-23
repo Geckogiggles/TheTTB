@@ -1,8 +1,78 @@
 <div class='text-center'>
-  <h2>{{title}}</h2>
+  <h2 class='rainbow'>{{title}}</h2>
   <p>{{description}}</p>
   <p>Created by {{user.name}} on {{format_date date_created}}</p>
   <p>
-    <button class='btn btn-primary'>Submit Comment!</button>
+    <button
+      type='button'
+      class='btn btn-primary'
+      data-toggle='modal'
+      data-target='#commentModal'
+      data-user='{{user.id}}'
+    >Submit Comment!</button>
+    <div
+      class='modal fade'
+      id='commentModal'
+      tabindex='-1'
+      role='dialog'
+      aria-labelledby='exampleModalLabel'
+      aria-hidden='true'
+    >
+      <div class='modal-dialog' role='document'>
+        <div class='modal-content'>
+          <div class='modal-header'>
+            <h5 class='modal-title' id='commentModalLabel'>Tell Me More...</h5>
+            <button
+              type='button'
+              class='close'
+              data-dismiss='modal'
+              aria-label='Close'
+            >
+              <span aria-hidden='true'>&times;</span>
+            </button>
+          </div>
+          <div class='modal-body'>
+            <form class='new-comment-form'>
+              <div class='form-group'>
+                <label
+                  for='comment-title'
+                  class='col-form-label text-left'
+                >Title:</label>
+                <input
+                  type='text'
+                  class='form-control'
+                  placeholder='Initial thoughts?'
+                  id='comment-title'
+                />
+              </div>
+              <div class='form-group'>
+                <label
+                  for='comment-text'
+                  class='col-form-label text-left'
+                >Comment:</label>
+                <textarea
+                  class='form-control'
+                  placeholder='Spill the Tea'
+                  id='comment-text'
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class='modal-footer'>
+            <button
+              type='button'
+              class='btn btn-secondary'
+              data-dismiss='modal'
+            >Close</button>
+            <button
+              type='button'
+              data-dismiss='modal'
+              class='btn btn-primary'
+            >Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
   </p>
 </div>
+{{>comments}}

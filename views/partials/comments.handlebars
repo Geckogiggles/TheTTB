@@ -1,0 +1,25 @@
+</div>
+{{#if coments.length}}
+  <div class='col-md-6 post-list'>
+    <h3>Comments:</h3>
+
+    {{#each comments as |comment|}}
+      <div class='row mb-2'>
+        <div class='col-md-8'>
+          <h4><a
+              href='/post/{{comment.id}}'
+              class='rainbow'
+            >{{comment.title}}</a></h4>
+          <p>Created by {{user.name}} on {{format_date date_created}}</p>
+          <p>{{comment.description}}</p>
+        </div>
+        <div class='col-md-4'>
+          <button
+            class='btn btn-sm btn-danger'
+            data-id='{{comment.id}}'
+          >DELETE</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+{{/if}}
