@@ -1,3 +1,4 @@
+<div class='row'>
 <div class='text-center'>
   <h2 class='rainbow'>{{title}}</h2>
   <p>{{description}}</p>
@@ -56,7 +57,6 @@
                   id='comment-text'
                 ></textarea>
               </div>
-            </form>
           </div>
           <div class='modal-footer'>
             <button
@@ -65,14 +65,40 @@
               data-dismiss='modal'
             >Close</button>
             <button
-              type='button'
-              data-dismiss='modal'
+              type='submit'
               class='btn btn-primary'
             >Submit</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
   </p>
 </div>
-{{>comments}}
+<div class='col-md-6 comment-list'>
+  {{#if comments.length}}
+
+    <h3>Comments:</h3>
+
+    {{#each comments as |comment|}}
+      <div class='row mb-2'>
+        <div class='col-md-8'>
+          <h4><a
+              href='/post/comment
+              class='rainbow'
+            >{{comment.title}}</a></h4>
+          <p>Created by {{user.name}} on {{format_date date_created}}</p>
+          <p>{{comment.description}}</p>
+        </div>
+        <div class='col-md-4'>
+          <button
+            class='btn btn-sm btn-danger'
+            data-id='{{comment.id}}'
+          >DELETE</button>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
+<script src='/js/comment.js'></script>
+</div>

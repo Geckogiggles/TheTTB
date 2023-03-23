@@ -1,6 +1,6 @@
-</div>
-{{#if comments.length}}
-  <div class='col-md-6 post-list'>
+<div class='col-md-6 comment-list'>
+  {{#if comments.length}}
+
     <h3>Comments:</h3>
 
     {{#each comments as |comment|}}
@@ -21,5 +21,6 @@
         </div>
       </div>
     {{/each}}
-  </div>
-{{/if}}
+  {{/if}}
+</div>
+<script src='/js/comment.js'></script>

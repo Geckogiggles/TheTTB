@@ -1,5 +1,6 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
+    console.log('%c Oh my heavens! ', 'background: #222; color: #bada55')
 
     const title = document.querySelector('#comment-title').value.trim();
     const description = document.querySelector('#comment-text').value.trim();
@@ -14,28 +15,11 @@ const newFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location = document.location
+            document.location.reload();
         } else {
             alert('Failed to post comment');
         }
     }
-
-
-    if (title && description) {
-        const response = await fetch(`/api/comments`, {
-            method: 'GET',
-            body: JSON.stringify({ title, description }),
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (response.ok) {
-            document.location = document.location
-        } else {
-            alert('Failed to post comment');
-        }
-    };
 };
 
 const delButtonHandler = async (event) => {
@@ -46,7 +30,7 @@ const delButtonHandler = async (event) => {
             method: 'DELETE',
         });
         if (response.ok) {
-            document.location = document.location
+            document.location.reload()
         } else {
             alert('Failed to delete comment');
         }
