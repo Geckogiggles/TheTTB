@@ -42,9 +42,11 @@ router.get('/post/:id', async (req, res) => {
       },
 
     });
+    console.log(commentData);
+    console.log(postData);
     const post = postData.get({ plain: true });
     const comments = commentData.map((item) => item.get({ plain: true }));
-
+    console.log('%c COMMENTS', comments, 'background: #222; color: #bada55')
     res.render('post', {
       ...post,
       comments,
