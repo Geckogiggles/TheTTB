@@ -15,30 +15,7 @@ router.post('/', withAuth, async (req, res) => {
     }
 });
 
-router.get('/post/:id', withAuth, async (req, res) => {
-    try {
-        const postData = await Post.findAll({
-            where: {
-                post_id: req.params.post_id,
-            },
-            include: [
-                {
-                    model: User,
-                    attributes: ['name'],
-                },
-            ],
-        });
-        const comment = commentData.map((Comment) => Comment.get({ plain: true }));
 
-        res.render('post', {
-            ...post,
-            comment,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
 router.put('/', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.update(req.body, {
