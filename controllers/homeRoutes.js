@@ -36,14 +36,22 @@ router.get('/post/:id', async (req, res) => {
         },
       ],
     });
-    const commentData = await Comment.findAll({
+    const commentData = await Comment.findAll(req.body, {
+      include: [
+        {
+          model: User,
+          // attributes: ['name'],
+        },
+      ],
       where: {
         post_id: req.params.id,
       },
-
     });
-    console.log(commentData);
-    console.log(postData);
+    console.log("THIS IS REQ.BODY:", req.body);
+    // const userData = await User.findByPk(req.body.user_id, {
+    //   attributes: { exclude: ['password'] },
+    // });
+    console.log("THIS IS THE ONE WITH USERS:", commentData);
     const post = postData.get({ plain: true });
     const comments = commentData.map((item) => item.get({ plain: true }));
     console.log('%c COMMENTS', comments, 'background: #222; color: #bada55')

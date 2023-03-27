@@ -1,16 +1,19 @@
 [
     {
       "post_id": 1,
+      "user_id": 3,
       "title": "GREAT",
       "description": "Best insight ever."
     },
     {
       "post_id": 1,
+      "user_id": 1,
       "title": "HATED IT",
       "description": "THIS SERIOUSLY WAS HORRIFIC!"
     },
     {
       "post_id": 1,
+      "user_id": 2,
       "title": "Meh",
       "description": "Honestly, nothing special."
     }

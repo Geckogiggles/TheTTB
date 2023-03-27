@@ -7,10 +7,13 @@
       <div class='row mb-2'>
         <div class='col-md-8'>
           <h4><a
-              href='/post/{{comment.id}}'
+              href='/post/{{comment.post.id}}'
               class='rainbow'
             >{{comment.title}}</a></h4>
-          <p>Created by {{user.name}} on {{format_date date_created}}</p>
+          <p>Created by
+            {{user.dataValues.name}}
+            on
+            {{format_date date_created}}</p>
           <p>{{comment.description}}</p>
         </div>
         <div class='col-md-4'>
@@ -21,7 +24,6 @@
         </div>
       </div>
     {{/each}}
-
     {{#else}}
       <h3>NO comments found</h3>
     {{/else}}
