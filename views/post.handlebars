@@ -1,15 +1,15 @@
 <div class='row'>
 <div class='text-center'>
-  <h2 class='rainbow'>{{title}}</h2>
-  <p>{{description}}</p>
-  <p>Created by {{user.name}} on {{format_date date_created}}</p>
+  <h2 class='rainbow'>{{post.title}}</h2>
+  <p>{{post.description}}</p>
+  <p>Created by {{post.user.name}} on {{format_date post.date_created}}</p>
   <p>
     <button
       type='button'
       class='btn btn-primary'
       data-toggle='modal'
       data-target='#commentModal'
-      data-user='{{user.id}}'
+      data-user='{{post.user.id}}'
     >Submit Comment!</button>
     <div
       class='modal fade'

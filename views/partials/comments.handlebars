@@ -1,9 +1,9 @@
 <div class='col-md-6 comment-list'>
-  {{#if comments}}
+  {{#if post.comments}}
 
     <h3>Comments:</h3>
 
-    {{#each comments as |comment|}}
+    {{#each post.comments as |comment|}}
       <div class='row mb-2'>
         <div class='col-md-8'>
           <h4><a
@@ -11,9 +11,9 @@
               class='rainbow'
             >{{comment.title}}</a></h4>
           <p>Created by
-            {{comment.user_id}}
+            {{comment.user.name}}
             on
-            {{format_date date_created}}</p>
+            {{format_date comment.date_created}}</p>
           <p>{{comment.description}}</p>
         </div>
         <div class='col-md-4'>
