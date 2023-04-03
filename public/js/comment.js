@@ -1,11 +1,11 @@
 const newFormHandler = async (event) => {
     event.preventDefault();
-    console.log('%c Oh my heavens! ', 'background: #222; color: #bada55')
-
+    console.log('NEW FORM HANDLER IS RUNNING')
     const title = document.querySelector('#comment-title').value.trim();
     const description = document.querySelector('#comment-text').value.trim();
 
     if (title && description) {
+        console.log("if is running...++++++++++==========****************")
         const response = await fetch(`/api/comments`, {
             method: 'POST',
             body: JSON.stringify({ title, description }),
@@ -13,12 +13,15 @@ const newFormHandler = async (event) => {
                 'Content-Type': 'application/json',
             },
         });
-
+        console.log(response)
         if (response.ok) {
             document.location.reload();
         } else {
             alert('Failed to post comment');
         }
+    }
+    else {
+        console.log('IF IT DID NOT RUN ((((((((((((((((((((((((((((')
     }
 };
 

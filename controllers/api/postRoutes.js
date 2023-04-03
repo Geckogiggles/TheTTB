@@ -3,6 +3,7 @@ const { Post, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
+  console.log('POST POST -----------------------------------')
   try {
     const newPost = await Post.create({
       ...req.body,
@@ -15,6 +16,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 router.get('/', withAuth, async (req, res) => {
+  console.log('POST GET ************************************')
   try {
     const post = await Post.findAll({
       include: [
@@ -32,6 +34,7 @@ router.get('/', withAuth, async (req, res) => {
 
 
 router.put('/', withAuth, async (req, res) => {
+  console.log('Post put _------------------------------------------')
   try {
     const postData = await Post.update(req.body, {
       where: {

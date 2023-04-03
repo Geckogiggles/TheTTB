@@ -3,12 +3,16 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
+    console.log('comment post is running=================================')
     try {
+        console.log("try is running ~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         const newComment = await Comment.create({
             ...req.body,
             user_id: req.session.user_id,
+            post_id: req.params.post_id,
             name: req.session.user_id.name,
         });
+        console.log("THIS IS THE REQUEST:", newComment)
         res.status(200).json(newComment);
     } catch (err) {
         res.status(400).json(err);
@@ -18,6 +22,7 @@ router.post('/', withAuth, async (req, res) => {
 
 
 router.put('/', withAuth, async (req, res) => {
+    console.log('the put is running +++++++++++++++++++++++++++++++++++++++++')
     try {
         const commentData = await Comment.update(req.body, {
             where: {
@@ -37,6 +42,7 @@ router.put('/', withAuth, async (req, res) => {
 });
 
 router.delete('/:id', withAuth, async (req, res) => {
+    console.log('the delete is running ```````````````````````````')
     try {
         const commentData = await Comment.destroy({
             where: {
