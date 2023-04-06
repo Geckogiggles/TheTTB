@@ -4,7 +4,6 @@ const newFormHandler = async (event) => {
     const title = document.querySelector('#comment-title').value.trim();
     const description = document.querySelector('#comment-text').value.trim();
     const post_id = event.target.getAttribute('data-id');
-    alert(title + description + post_id);
     if (title && description && post_id) {
         console.log("if is running...++++++++++==========****************")
         const response = await fetch(`/api/comments`, {
