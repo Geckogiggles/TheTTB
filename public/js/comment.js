@@ -3,12 +3,13 @@ const newFormHandler = async (event) => {
     console.log('NEW FORM HANDLER IS RUNNING')
     const title = document.querySelector('#comment-title').value.trim();
     const description = document.querySelector('#comment-text').value.trim();
-
-    if (title && description) {
+    const post_id = event.target.getAttribute('data-id');
+    alert(title + description + post_id);
+    if (title && description && post_id) {
         console.log("if is running...++++++++++==========****************")
         const response = await fetch(`/api/comments`, {
             method: 'POST',
-            body: JSON.stringify({ title, description }),
+            body: JSON.stringify({ title, description, post_id }),
             headers: {
                 'Content-Type': 'application/json',
             },

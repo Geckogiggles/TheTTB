@@ -52,7 +52,7 @@ router.get('/post/:id', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
-    console.log('%c', err, 'background: #222; color: #bada55')
+    console.log('%c', err, '-------------------------------------')
   }
 });
 
